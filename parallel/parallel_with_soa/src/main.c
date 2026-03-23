@@ -35,7 +35,16 @@ int main(int argc, char** argv) {
 	}
 
 	int max_threads = omp_get_max_threads();
-	int threads_for_boids = (max_threads > 1) ? max_threads - 1 : 1;
+	int threads_for_boids;
+
+	if (benchmark_mode) {
+	    // Usa tutti i thread disponibili per il benchmark
+    	    threads_for_boids = max_threads;
+	} else {
+    	    // GUI: lascia 1 thread per il worker thread
+    	    threads_for_boids = (max_threads > 1) ? max_threads - 1 : 1;
+	}
+
 	omp_set_num_threads(threads_for_boids);
 	printf("Usati %d thread OpenMP per i calcoli dei boid\n", threads_for_boids);
 

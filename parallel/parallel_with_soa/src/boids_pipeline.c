@@ -213,4 +213,8 @@ void pipeline_benchmark(Pipeline* p, int steps_per_run, int num_runs) {
            min_cpu, max_cpu);
 
     printf("------------------------------\n");
+
+    printf("RESULT,%f,%f,%f,%f,%f,%f,%f\n",
+       mean_wall, min_wall, max_wall, std_wall,
+       mean_cpu, min_cpu, max_cpu);
 }
