@@ -1,0 +1,14 @@
+Cores,Architecture,Time_Seconds,Total_Attempts,Hashes_Per_Second
+1,baseline,56.1462,190292,3389.22
+1,Shared-Nothing,56.1462,190292,3389.22
+1,Global-Exit,73.9957,190292,2571.66
+2,Shared-Nothing,29.8960,190292,6365.12
+2,Global-Exit,41.5168,190292,4583.50
+4,Shared-Nothing,17.5674,190292,10832.11
+4,Global-Exit,25.3515,190292,7506.16
+8,Shared-Nothing,11.7274,190292,16226.29
+8,Global-Exit,19.5024,190292,9757.34
+16,Shared-Nothing,9.1416,190292,20815.99
+16,Global-Exit,19.1843,190292,9919.16
+20,Shared-Nothing,9.3954,190292,20253.65
+20,Global-Exit,19.4573,190292,9779.95

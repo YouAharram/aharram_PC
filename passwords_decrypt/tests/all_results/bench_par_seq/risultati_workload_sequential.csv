@@ -1,0 +1,10 @@
+Anni_Ricerca,Cores,Scheduling,Tempo_s,Tentativi
+2,1,sequential,0.2199,731
+4,1,sequential,0.4365,1461
+8,1,sequential,0.8707,2922
+16,1,sequential,1.7416,5844
+32,1,sequential,3.4986,11688
+64,1,sequential,6.9756,23376
+128,1,sequential,13.9016,46751
+220,1,sequential,23.8478,80354
+256,1,sequential,27.7468,93502

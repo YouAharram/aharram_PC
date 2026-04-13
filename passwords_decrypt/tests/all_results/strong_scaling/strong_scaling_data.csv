@@ -1,0 +1,13 @@
+Cores,Scheduling,Time_Seconds,Total_Attempts
+1,static,23.6209,80719
+1,dynamic,23.7201,80719
+2,static,12.2518,80719
+2,dynamic,12.4125,80719
+4,static,6.8629,80719
+4,dynamic,6.9166,80719
+8,static,5.1400,80719
+8,dynamic,4.4029,80719
+16,static,4.4275,80719
+16,dynamic,3.8888,80719
+20,static,3.8292,80719
+20,dynamic,3.9289,80719

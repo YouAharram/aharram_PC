@@ -1,0 +1,14 @@
+Cores,Architecture,Time_Seconds,Total_Attempts,Hashes_Per_Second
+1,Sequential-Pure,58.9587,190292,3227.55
+1,Shared-Nothing,59.2883,190292,3209.60
+1,Global-Exit,77.6015,190292,2452.17
+2,Shared-Nothing,30.4451,190292,6250.34
+2,Global-Exit,42.5972,190292,4467.24
+4,Shared-Nothing,17.9579,190292,10596.56
+4,Global-Exit,25.6521,190292,7418.19
+8,Shared-Nothing,11.5545,190292,16469.10
+8,Global-Exit,19.8315,190292,9595.46
+16,Shared-Nothing,9.3255,190292,20405.61
+16,Global-Exit,19.6143,190292,9701.71
+20,Shared-Nothing,9.8444,190292,19330.02
+20,Global-Exit,19.9629,190292,9532.27
