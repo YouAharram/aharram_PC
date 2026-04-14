@@ -130,7 +130,7 @@ BenchmarkResult pipeline_benchmark(Pipeline* p, int steps_per_run, int num_runs)
 
     res.num_threads = omp_get_max_threads();
     omp_sched_t kind;
-    int chunk;
+    int chunk;ricerca
     omp_get_schedule(&kind, &chunk);
 
     switch (kind) {

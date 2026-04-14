@@ -39,7 +39,7 @@ void init_boids(Boids* flock, int n, unsigned int base_seed) {
     }
 }
 
-// --- Brute-force parallelizzata (SoA) ---
+// --- Brute-force parallelizzata  ---
 void update_boids(Boids* in, Boids* out) {
     int n = in->n;
     #pragma omp parallel for schedule(runtime)

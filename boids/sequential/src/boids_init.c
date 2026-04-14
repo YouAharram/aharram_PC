@@ -1,13 +1,11 @@
 #include "../include/boids.h"
 
-// RNG deterministico
 static inline float rand_float_seq(unsigned int* state, float min, float max) {
     *state = 1664525 * (*state) + 1013904223;
     float t = (float)(*state & 0xFFFFFF) / (float)0x1000000;
     return min + t * (max - min);
 }
 
-// Inizializzazione boids
 void init_boids(Boid* flock, int n, unsigned int seed) {
     for (int i = 0; i < n; i++) {
         unsigned int s = seed + i;

@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 			benchmark_mode = 1;
 			if (i + 1 < argc && argv[i+1][0] != '-') 
 				num_boids = atoi(argv[++i]);
-		}
+		}ricerca
 		else if (strcmp(argv[i], "--grid") == 0) {
 			use_grid = 1;
 		}
@@ -78,7 +78,7 @@ int main(int argc, char** argv) {
 			EndDrawing();
 		}
 		CloseWindow();
-		pipeline_stop(&p); // ferma worker thread e libera memoria
+		pipeline_stop(&p); 
 	}
 	return 0;
 }
