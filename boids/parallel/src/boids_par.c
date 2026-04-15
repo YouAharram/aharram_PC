@@ -19,10 +19,6 @@ void init_boids(Boids* flock, int n, unsigned int base_seed) {
     flock->n = n;
     size_t size = sizeof(float) * n;
     size = ((size + 63) / 64) * 64;
-    flock->x  = aligned_alloc(64, size);
-    flock->y  = aligned_alloc(64, size);
-    flock->vx = aligned_alloc(64, size);
-    flock->vy = aligned_alloc(64, size);
 
     #pragma omp parallel for schedule(runtime)
     for (int i = 0; i < n; i++) {
