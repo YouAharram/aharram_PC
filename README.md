@@ -82,8 +82,6 @@ project_work/
 | 05 | Load balancing | Statico vs dinamico su task a costo eterogeneo |
 | 06 | End-to-end | Pipeline realistica: lettura, augmentation e scrittura su disco |
 | 07 | Overhead | Costo di creazione del pool e di comunicazione IPC |
-| 08 | Saturation | Oversubscription e confronto thread vs processi (effetto del GIL) |
-| 09 | Cache behavior | Impatto del working set sulla cache |
 
 ### Requisiti
 ```bash
