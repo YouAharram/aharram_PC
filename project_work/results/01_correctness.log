@@ -1,0 +1,45 @@
+Esperimento 1 - Verifica di correttezza (requisito 5).
+
+Dimostra che la versione parallela e' equivalente a quella sequenziale:
+
+  A. nessuna immagine persa o duplicata, per qualunque numero di worker e
+     qualunque strategia di scheduling/chunking;
+  B. output *bit-identico* (SHA-256 su ogni immagine augmentata) tra
+     sequenziale e parallelo, grazie al seed derivato dall'indice dell'immagine;
+  C. bounding box e keypoint restano coerenti dopo le trasformazioni
+     geometriche, e coincidono con quelli della versione sequenziale;
+  D. controprova sulla gestione dei seed: con il seeding "ingenuo" (RNG unico
+     ereditato dal fork) i worker rigenerano le *stesse* trasformazioni,
+     producendo un dataset augmentato con molte duplicazioni.
+
+[setup] 240 immagini 384x384
+
+[A/B] output bit-identico e nessuna immagine persa/duplicata
+  OK  process p=2 dynamic chunk=1            img=240 task=240 identici=True
+  OK  process p=4 dynamic chunk=7            img=240 task=35 identici=True
+  OK  process p=8 dynamic chunk=16           img=240 task=15 identici=True
+  OK  process p=20 dynamic chunk=64          img=240 task=4 identici=True
+  OK  process p=4 static chunk=None          img=240 task=4 identici=True
+  OK  process p=14 static chunk=None         img=240 task=14 identici=True
+  OK  thread p=8 dynamic chunk=16            img=240 task=15 identici=True
+
+[C] coerenza di bounding box e keypoint
+  immagini identiche : 120/120
+  bbox identiche     : 120/120  (totale 360 box, geometria valida: True)
+  keypoint identici  : 120/120  (totale 600 keypoint)
+
+[D] controprova: seeding ingenuo (RNG unico ereditato dal fork)
+    confronto le *firme dei parametri* estratti a caso, non i pixel:
+    input diversi danno output diversi anche quando la trasformazione e' la stessa.
+  ingenuo  - parametri distinti, sequenziale : 240/240
+  ingenuo  - parametri distinti, parallelo p=8: 48/240   -> 192 collisioni tra worker
+  ingenuo  - parametri uguali al sequenziale  : 0/240
+  adottato - parametri distinti, parallelo p=8: 240/240
+  adottato - parametri uguali al sequenziale  : 240/240
+  => senza reseed per immagine i worker forkati condividono lo stato dell'RNG
+     e riapplicano le stesse trasformazioni: l'augmentation perde diversita'
+     e il risultato dipende dal numero di worker. Il seeding per indice adottato
+     nel progetto elimina il problema (nessuna collisione, output riproducibile).
+
+TUTTI I CONTROLLI SUPERATI
+  -> salvato /home/youness/Desktop/Aharram_PC_project_work/results/01_correctness.json

@@ -1,0 +1,42 @@
+P-core logici: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]  (fisici: [0, 2, 4, 6, 8, 10])
+E-core       : [12, 13, 14, 15, 16, 17, 18, 19]
+  dataset da cache: uniform_n1500_s512_seed20250908.npy (1.10 GB)
+
+=== [A] un P-core contro un E-core (stesso lavoro, 1 worker) ===
+    warmup 1/1    P-core rep 1/5: 10.315s (145.4 img/s)          P-core rep 2/5: 10.303s (145.6 img/s)          P-core rep 3/5: 10.217s (146.8 img/s)          P-core rep 4/5: 10.186s (147.3 img/s)          P-core rep 5/5: 10.174s (147.4 img/s)                                                                                      P-core: T=10.217s  146.8 img/s  f=3385 MHz temp=96.0C
+    warmup 1/1    E-core rep 1/5: 16.065s (93.4 img/s)          E-core rep 2/5: 15.903s (94.3 img/s)          E-core rep 3/5: 16.061s (93.4 img/s)          E-core rep 4/5: 15.907s (94.3 img/s)          E-core rep 5/5: 16.225s (92.5 img/s)                                                                                      E-core: T=16.061s  93.4 img/s  f=3259 MHz temp=97.0C
+  => un E-core vale 0.64 P-core su questo workload
+
+=== [B] frequenza e temperatura in funzione del numero di worker ===
+    warmup 1/2    warmup 2/2    seq rep 1/5: 10.113s (148.3 img/s)          seq rep 2/5: 9.967s (150.5 img/s)          seq rep 3/5: 9.908s (151.4 img/s)          seq rep 4/5: 10.002s (150.0 img/s)          seq rep 5/5: 9.894s (151.6 img/s)                                                                                        warmup 1/2    warmup 2/2    p=1 rep 1/5: 9.955s (150.7 img/s)          p=1 rep 2/5: 9.951s (150.7 img/s)          p=1 rep 3/5: 10.022s (149.7 img/s)          p=1 rep 4/5: 9.840s (152.4 img/s)          p=1 rep 5/5: 9.955s (150.7 img/s)                                                                                      p=1   T= 9.955s S= 1.00x  f_P=3290 MHz  f_E=2074 MHz  T_max=96.0C
+    warmup 1/2    warmup 2/2    p=2 rep 1/5: 5.206s (288.1 img/s)          p=2 rep 2/5: 5.304s (282.8 img/s)          p=2 rep 3/5: 5.332s (281.3 img/s)          p=2 rep 4/5: 5.340s (280.9 img/s)          p=2 rep 5/5: 5.323s (281.8 img/s)                                                                                      p=2   T= 5.323s S= 1.87x  f_P=3270 MHz  f_E=1973 MHz  T_max=96.0C
+    warmup 1/2    warmup 2/2    p=4 rep 1/5: 3.196s (469.3 img/s)          p=4 rep 2/5: 3.272s (458.5 img/s)          p=4 rep 3/5: 3.211s (467.1 img/s)          p=4 rep 4/5: 3.309s (453.3 img/s)          p=4 rep 5/5: 3.279s (457.4 img/s)                                                                                      p=4   T= 3.272s S= 3.05x  f_P=3044 MHz  f_E=1787 MHz  T_max=96.0C
+    warmup 1/2    warmup 2/2    p=6 rep 1/5: 2.446s (613.3 img/s)          p=6 rep 2/5: 2.604s (576.0 img/s)          p=6 rep 3/5: 2.488s (602.9 img/s)          p=6 rep 4/5: 2.691s (557.5 img/s)          p=6 rep 5/5: 2.612s (574.3 img/s)                                                                                      p=6   T= 2.604s S= 3.83x  f_P=2794 MHz  f_E=2019 MHz  T_max=96.0C
+    warmup 1/2    warmup 2/2    p=8 rep 1/5: 2.233s (671.8 img/s)          p=8 rep 2/5: 2.335s (642.3 img/s)          p=8 rep 3/5: 2.505s (598.9 img/s)          p=8 rep 4/5: 2.337s (641.9 img/s)          p=8 rep 5/5: 2.319s (646.9 img/s)                                                                                      p=8   T= 2.335s S= 4.27x  f_P=2557 MHz  f_E=2057 MHz  T_max=96.0C
+    warmup 1/2    warmup 2/2    p=12 rep 1/5: 1.950s (769.2 img/s)          p=12 rep 2/5: 2.157s (695.3 img/s)          p=12 rep 3/5: 2.022s (741.9 img/s)          p=12 rep 4/5: 2.054s (730.1 img/s)          p=12 rep 5/5: 2.213s (677.9 img/s)                                                                                      p=12  T= 2.054s S= 4.85x  f_P=2345 MHz  f_E=1888 MHz  T_max=95.0C
+    warmup 1/2    warmup 2/2    p=14 rep 1/5: 2.122s (706.9 img/s)          p=14 rep 2/5: 2.116s (708.8 img/s)          p=14 rep 3/5: 2.017s (743.5 img/s)          p=14 rep 4/5: 2.071s (724.4 img/s)          p=14 rep 5/5: 1.960s (765.5 img/s)                                                                                      p=14  T= 2.071s S= 4.81x  f_P=2157 MHz  f_E=1693 MHz  T_max=96.0C
+    warmup 1/2    warmup 2/2    p=20 rep 1/5: 1.991s (753.4 img/s)          p=20 rep 2/5: 2.003s (748.9 img/s)          p=20 rep 3/5: 1.929s (777.7 img/s)          p=20 rep 4/5: 1.916s (782.9 img/s)          p=20 rep 5/5: 1.967s (762.5 img/s)                                                                                      p=20  T= 1.967s S= 5.07x  f_P=2026 MHz  f_E=1611 MHz  T_max=96.0C
+  => frequenza dei P-core: 3290 MHz con 1 worker -> 2026 MHz a pieno carico (-38.4%)
+
+=== [C] scaling con affinita' forzata ===
+    warmup 1/2    warmup 2/2    1 P-core rep 1/5: 10.685s (140.4 img/s)          1 P-core rep 2/5: 10.464s (143.3 img/s)          1 P-core rep 3/5: 10.498s (142.9 img/s)          1 P-core rep 4/5: 10.441s (143.7 img/s)          1 P-core rep 5/5: 10.309s (145.5 img/s)                                                                                      1 P-core        p=1   cpus=1   T=10.464s S= 0.95x    143.3 img/s
+    warmup 1/2    warmup 2/2    P-core fisici rep 1/5: 2.394s (626.5 img/s)          P-core fisici rep 2/5: 2.488s (603.0 img/s)          P-core fisici rep 3/5: 2.428s (617.9 img/s)          P-core fisici rep 4/5: 2.602s (576.4 img/s)          P-core fisici rep 5/5: 2.498s (600.5 img/s)                                                                                      P-core fisici   p=6   cpus=6   T= 2.488s S= 4.01x    603.0 img/s
+    warmup 1/2    warmup 2/2    P-core + SMT rep 1/5: 2.137s (702.0 img/s)          P-core + SMT rep 2/5: 2.157s (695.4 img/s)          P-core + SMT rep 3/5: 2.247s (667.4 img/s)          P-core + SMT rep 4/5: 2.100s (714.3 img/s)          P-core + SMT rep 5/5: 2.135s (702.5 img/s)                                                                                      P-core + SMT    p=12  cpus=12  T= 2.137s S= 4.66x    702.0 img/s
+    warmup 1/2    warmup 2/2    solo E-core rep 1/5: 3.577s (419.4 img/s)          solo E-core rep 2/5: 3.467s (432.7 img/s)          solo E-core rep 3/5: 3.532s (424.7 img/s)          solo E-core rep 4/5: 3.514s (426.8 img/s)          solo E-core rep 5/5: 3.417s (439.0 img/s)                                                                                      solo E-core     p=8   cpus=8   T= 3.514s S= 2.84x    426.8 img/s
+    warmup 1/2    warmup 2/2    tutti i core rep 1/5: 1.688s (888.9 img/s)          tutti i core rep 2/5: 1.694s (885.4 img/s)          tutti i core rep 3/5: 1.746s (859.0 img/s)          tutti i core rep 4/5: 1.788s (839.1 img/s)          tutti i core rep 5/5: 1.743s (860.7 img/s)                                                                                      tutti i core    p=20  cpus=20  T= 1.743s S= 5.72x    860.7 img/s
+    warmup 1/2    warmup 2/2    tutti (p=14) rep 1/5: 2.172s (690.5 img/s)          tutti (p=14) rep 2/5: 2.041s (734.8 img/s)          tutti (p=14) rep 3/5: 2.037s (736.4 img/s)          tutti (p=14) rep 4/5: 2.175s (689.8 img/s)          tutti (p=14) rep 5/5: 1.897s (790.7 img/s)                                                                                      tutti (p=14)    p=14  cpus=20  T= 2.041s S= 4.88x    734.8 img/s
+  => guadagno dell'SMT sui P-core: +16.4%
+  => throughput degli 8 E-core = 0.71x quello dei 6 P-core fisici
+
+=== [D] modello predittivo dello speedup massimo ===
+  somma dei sottoinsiemi misurati separatamente : S_pred = 7.87x
+  misura con tutti i core insieme              : S_mis  = 6.00x
+  perdita per contesa su risorse condivise      : 23.7%
+  (memoria/L3 condivisa, budget di potenza, scheduling)
+
+=== [E] throttling termico su 60s di carico sostenuto (p=14) ===
+  29 batch da 1500 immagini
+  frequenza media primi 15%: 1922 MHz
+  frequenza media ultimi 15%: 1948 MHz (+1.4%)
+  temperatura max: 96.0C
+  -> salvato /home/youness/Desktop/Aharram_PC_project_work/results/08_saturation.csv

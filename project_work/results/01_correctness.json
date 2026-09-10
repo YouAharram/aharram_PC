@@ -1,0 +1,88 @@
+{
+  "n_images": 240,
+  "image_size": 384,
+  "checks": {
+    "equivalence": [
+      {
+        "config": "process p=2 dynamic chunk=1",
+        "n_processed": 240,
+        "all_present": true,
+        "no_duplicates": true,
+        "bit_identical": true,
+        "n_tasks": 240
+      },
+      {
+        "config": "process p=4 dynamic chunk=7",
+        "n_processed": 240,
+        "all_present": true,
+        "no_duplicates": true,
+        "bit_identical": true,
+        "n_tasks": 35
+      },
+      {
+        "config": "process p=8 dynamic chunk=16",
+        "n_processed": 240,
+        "all_present": true,
+        "no_duplicates": true,
+        "bit_identical": true,
+        "n_tasks": 15
+      },
+      {
+        "config": "process p=20 dynamic chunk=64",
+        "n_processed": 240,
+        "all_present": true,
+        "no_duplicates": true,
+        "bit_identical": true,
+        "n_tasks": 4
+      },
+      {
+        "config": "process p=4 static chunk=None",
+        "n_processed": 240,
+        "all_present": true,
+        "no_duplicates": true,
+        "bit_identical": true,
+        "n_tasks": 4
+      },
+      {
+        "config": "process p=14 static chunk=None",
+        "n_processed": 240,
+        "all_present": true,
+        "no_duplicates": true,
+        "bit_identical": true,
+        "n_tasks": 14
+      },
+      {
+        "config": "thread p=8 dynamic chunk=16",
+        "n_processed": 240,
+        "all_present": true,
+        "no_duplicates": true,
+        "bit_identical": true,
+        "n_tasks": 15
+      }
+    ],
+    "targets": {
+      "images_identical": 120,
+      "bboxes_identical": 120,
+      "keypoints_identical": 120,
+      "n_boxes": 360,
+      "n_keypoints": 600,
+      "boxes_geometrically_valid": true,
+      "n_images": 120
+    },
+    "naive_seeding": {
+      "unique_params_sequential_naive": 240,
+      "unique_params_parallel_p8_naive": 48,
+      "collisions_naive_p8": 192,
+      "params_identical_to_sequential_naive": 0,
+      "unique_params_parallel_p8_seeded": 240,
+      "params_identical_to_sequential_seeded": 240,
+      "n_images": 240
+    }
+  },
+  "reference_digest_sample": {
+    "0": "bcf89268ca68ebab65f700692a9d539ddc0bb4cb27158bbc87005b910dd41279",
+    "1": "1efbfec089cb7e7dad147d2bce9c6ff74b4509ca3458fc6ceb5e7f13fed6b0c1",
+    "2": "57faac6577b647c0d1eff41e92caea9766b826c8785f2dcae0cc0cfb32c36480"
+  },
+  "all_checks_passed": true
+}

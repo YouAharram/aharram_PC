@@ -1,0 +1,9 @@
+.venv/
+data/cache/
+data/e2e_in/
+data/e2e_out/
+__pycache__/
+*.pyc
+results_quick/
+figures_quick/
+report/RELAZIONE_quick.md

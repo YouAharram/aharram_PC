@@ -1,0 +1,67 @@
+{
+  "experiment": "03_weak_scaling",
+  "started": "2026-09-08 16:36:47",
+  "system": {
+    "cpu_model": "12th Gen Intel(R) Core(TM) i7-1280P",
+    "architecture": "x86_64",
+    "logical_cores": 20,
+    "physical_cores": 14,
+    "threads_per_core": "2",
+    "sockets": "1",
+    "cpu_max_mhz": "4800.0000",
+    "l1d_cache": "544 KiB (14 instances)",
+    "l1i_cache": "704 KiB (14 instances)",
+    "l2_cache": "11.5 MiB (8 instances)",
+    "l3_cache": "24 MiB (1 instance)",
+    "numa_nodes": "1",
+    "os": "Linux 7.0.0-31-generic",
+    "os_full": "#31~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Aug 10 09:38:02 UTC 2",
+    "kernel": "7.0.0-31-generic",
+    "python": "3.13.9",
+    "python_impl": "CPython",
+    "ram_total_gb": 15.32,
+    "ram_available_gb": 10.64,
+    "library_versions": {
+      "numpy": "2.5.3",
+      "cv2": "5.0.0",
+      "albumentations": "2.0.8",
+      "scipy": "1.18.1",
+      "matplotlib": "3.11.1",
+      "pandas": "3.0.5",
+      "torch": null
+    },
+    "numpy_blas": "scipy-openblas",
+    "numpy_simd": [
+      "X86_V3"
+    ],
+    "compiler": "14.2.1",
+    "opencv_threads_default": 1,
+    "opencv_parallel_framework": "pthreads",
+    "env_thread_limits": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    },
+    "loadavg_at_collection": {
+      "1min": 28.89599609375,
+      "5min": 15.08837890625,
+      "15min": 7.36669921875
+    }
+  },
+  "per_worker": 500,
+  "image_size": 512,
+  "reps": 7,
+  "warmups": 2,
+  "chunksize": 16,
+  "workers": [
+    1,
+    2,
+    4,
+    8,
+    14,
+    20
+  ],
+  "pool_size": 3000,
+  "finished": "2026-09-08 16:44:59"
+}
