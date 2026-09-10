@@ -1,17 +1,3 @@
-"""Generazione e caricamento del dataset di immagini (requisito 1).
-
-Il dataset e' sintetico ma *procedurale e deterministico*: ogni immagine e'
-prodotta da un seed derivato dal suo indice, quindi il dataset e' esattamente
-riproducibile su qualsiasi macchina senza dover scaricare gigabyte di dati e
-senza che le performance dipendano dalla rete o dalla cache del filesystem.
-
-Le immagini contengono gradienti, forme geometriche, texture a bassa frequenza e
-grana: strutture con statistiche piu' simili a foto reali rispetto al rumore
-puro (importante per trasformazioni come CLAHE, Sharpen o la compressione JPEG).
-
-Parametri facilmente variabili: numero di immagini, dimensione, eterogeneita'
-delle dimensioni (usata per gli esperimenti di load balancing).
-"""
 from __future__ import annotations
 
 import hashlib

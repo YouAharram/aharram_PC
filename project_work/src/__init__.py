@@ -1,11 +1,3 @@
-"""Parallel Image Augmentation - benchmark sequenziale vs parallelo.
-
-ATTENZIONE: questo modulo va importato *prima* di numpy/opencv. Fissa a 1 il
-numero di thread delle librerie native (OpenBLAS/MKL/OpenMP). Senza questo, il
-"baseline sequenziale" userebbe in realta' tutti i core della macchina tramite
-il parallelismo interno di OpenCV, rendendo privi di significato speedup ed
-efficienza (T_1 non sarebbe un tempo davvero seriale).
-"""
 from __future__ import annotations
 
 import os

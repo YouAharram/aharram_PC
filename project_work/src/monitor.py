@@ -1,14 +1,3 @@
-"""Campionamento di frequenza e temperatura durante un benchmark.
-
-Serve all'analisi della saturazione (requisito 17): su un portatile con CPU
-ibrida (P-core + E-core) e budget termico limitato, una parte importante della
-perdita di speedup non dipende dal software ma dal fatto che i core NON girano
-alla stessa frequenza del caso sequenziale.
-
-Il campionatore e' un thread che legge sysfs ogni `interval` secondi: costo
-trascurabile (poche letture di file testuali) e nessun impatto misurabile sul
-benchmark.
-"""
 from __future__ import annotations
 
 import os

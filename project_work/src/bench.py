@@ -1,10 +1,3 @@
-"""Harness di misura: warm-up, ripetizioni, statistiche e salvataggio CSV.
-
-Requisiti 7, 8, 15: wall-clock time con `time.perf_counter`, almeno 5-10
-ripetizioni per configurazione precedute da 1-2 warm-up scartati, statistiche
-(mean/median/std/min/max + intervallo di confidenza al 95%), speedup,
-efficienza, throughput e CPU time.
-"""
 from __future__ import annotations
 
 import csv

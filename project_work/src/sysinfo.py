@@ -1,9 +1,3 @@
-"""Cattura della configurazione sperimentale (requisito 16 del progetto).
-
-Tutte le informazioni su hardware, sistema operativo e versioni delle librerie
-vengono salvate insieme ai risultati, in modo che ogni benchmark sia
-riproducibile e confrontabile.
-"""
 from __future__ import annotations
 
 import json

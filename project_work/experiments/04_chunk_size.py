@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-"""Esperimento 4 - Dimensione dei task/chunk (requisito 13).
-
-Con il numero di worker fissato si varia la granularita' dei task, cioe' quante
-immagini vengono assegnate a un worker per ogni dispatch.
-
-Trade-off atteso:
-  chunk piccolo -> bilanciamento migliore, ma un dispatch (e una serializzazione
-                   del risultato) ogni pochissime immagini: overhead di scheduling;
-  chunk grande  -> overhead minimo, ma la "coda" finale e' sbilanciata perche'
-                   l'ultimo worker puo' restare da solo a lavorare a lungo.
-"""
 from __future__ import annotations
 
 import argparse

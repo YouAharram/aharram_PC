@@ -1,18 +1,3 @@
-#!/usr/bin/env python
-"""Esperimento 6 - Benchmark end-to-end: disco -> augmentation -> disco (requisito 9).
-
-Il benchmark principale (esperimenti 2-5) misura solo il calcolo, con le
-immagini gia' in RAM. Qui la pipeline completa comprende decodifica JPEG,
-augmentation e ricodifica/scrittura su disco: serve a distinguere le
-performance *computazionali* da quelle *reali* della pipeline completa e a
-mostrare quanto l'I/O comprima lo speedup ottenibile.
-
-Nota metodologica: i file di input restano nella page cache del sistema
-operativo tra le ripetizioni, quindi la lettura e' quasi sempre servita dalla
-RAM. La componente di I/O misurata e' percio' dominata da decodifica JPEG,
-codifica JPEG e scritture (con il write-back gestito dal kernel): e' un limite
-inferiore realistico del costo di I/O su disco freddo.
-"""
 from __future__ import annotations
 
 import argparse

@@ -1,14 +1,3 @@
-#!/usr/bin/env python
-"""Esperimento 2 - Strong scaling e confronto tra workload (requisiti 10 e 14).
-
-Il problema resta FISSO (N immagini) mentre il numero di worker cresce.
-L'esperimento viene ripetuto per le tre pipeline (light / medium / heavy) per
-rispondere alla domanda: la parallelizzazione diventa piu' efficace quando il
-costo computazionale dell'augmentation aumenta?
-
-Metriche per configurazione: wall-clock time (mean/median/std/min/max + IC 95%),
-speedup, efficienza, throughput, CPU time del master e dei figli.
-"""
 from __future__ import annotations
 
 import argparse

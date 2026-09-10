@@ -1,22 +1,3 @@
-#!/usr/bin/env python
-"""Esperimento 8 - Perche' lo speedup satura: analisi fisica della macchina (requisito 17).
-
-Gli esperimenti precedenti misurano *quanto* si scala. Questo misura *perche'*
-non si scala di piu', sulla CPU specifica usata (Intel i7-1280P, architettura
-ibrida: 6 P-core con SMT + 8 E-core, 20 thread logici, portatile con budget
-termico limitato).
-
-  A. caratterizzazione dei core: stesso lavoro fissato su un P-core e su un
-     E-core -> rapporto di prestazioni reale tra i due tipi di core;
-  B. frequenza e temperatura in funzione del numero di worker: quanto la
-     frequenza cala passando da 1 core attivo a tutti i core attivi;
-  C. scaling con affinita' forzata: solo P-core fisici / P-core con SMT /
-     solo E-core / tutti -> quantifica separatamente il guadagno dell'SMT e il
-     contributo degli E-core;
-  D. modello predittivo dello speedup massimo raggiungibile e confronto con la
-     misura: la differenza residua e' la contesa sulle risorse condivise;
-  E. throttling termico su una corsa sostenuta.
-"""
 from __future__ import annotations
 
 import argparse
@@ -35,7 +16,6 @@ ALL_CPUS = set(range(os.cpu_count() or 1))
 
 
 def with_affinity(cpus: set[int], fn):
-    """Esegue `fn` con l'affinita' del processo (ereditata dai figli) limitata a `cpus`."""
     old = os.sched_getaffinity(0)
     os.sched_setaffinity(0, cpus)
     try:

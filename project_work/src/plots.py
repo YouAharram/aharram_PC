@@ -1,19 +1,3 @@
-"""Generazione di tutte le figure del progetto (requisito 19).
-
-Scelte grafiche
----------------
-* I tre workload sono una scala ORDINATA per costo crescente (light < medium <
-  heavy): usano quindi una rampa ordinale a una sola tinta (blu chiaro -> blu
-  scuro), non tre tinte categoriali scorrelate.
-* Le serie non ordinate (statico/dinamico, thread/processi, calcolo/end-to-end)
-  usano le prime tre tinte categoriali, in ordine fisso e mai riciclato.
-* Lo speedup ideale e' una linea grigia tratteggiata: e' un riferimento, non un
-  dato, e non deve rubare una tinta alle serie.
-* Ogni serie ha anche un marcatore diverso: l'identita' non e' mai affidata al
-  solo colore (stampa in bianco e nero, daltonismo).
-* Mai due assi y nello stesso grafico: grandezze diverse -> pannelli diversi.
-* I dati numerici completi restano disponibili nei CSV in results/.
-"""
 from __future__ import annotations
 
 import sys

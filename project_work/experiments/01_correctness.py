@@ -1,18 +1,3 @@
-#!/usr/bin/env python
-"""Esperimento 1 - Verifica di correttezza (requisito 5).
-
-Dimostra che la versione parallela e' equivalente a quella sequenziale:
-
-  A. nessuna immagine persa o duplicata, per qualunque numero di worker e
-     qualunque strategia di scheduling/chunking;
-  B. output *bit-identico* (SHA-256 su ogni immagine augmentata) tra
-     sequenziale e parallelo, grazie al seed derivato dall'indice dell'immagine;
-  C. bounding box e keypoint restano coerenti dopo le trasformazioni
-     geometriche, e coincidono con quelli della versione sequenziale;
-  D. controprova sulla gestione dei seed: con il seeding "ingenuo" (RNG unico
-     ereditato dal fork) i worker rigenerano le *stesse* trasformazioni,
-     producendo un dataset augmentato con molte duplicazioni.
-"""
 from __future__ import annotations
 
 import argparse

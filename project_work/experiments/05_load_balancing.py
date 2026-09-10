@@ -1,26 +1,3 @@
-#!/usr/bin/env python
-"""Esperimento 5 - Load balancing: assegnamento statico vs dinamico (requisito 12).
-
-Dataset volutamente ETEROGENEO: immagini di lato 192/320/512/832 con la pipeline
-in modalita' `resize_last`, cioe' le trasformazioni lavorano alla risoluzione
-nativa. Il costo per immagine e' quindi ~proporzionale all'area: la piu' grande
-costa circa 19 volte la piu' piccola.
-
-Due ordinamenti del dataset:
-  * `sorted`   - immagini ordinate per dimensione crescente: caso avverso per
-                 l'assegnamento statico a blocchi contigui (l'ultimo blocco
-                 contiene tutte le immagini costose);
-  * `shuffled` - dimensioni mescolate: lo statico e' molto piu' fortunato.
-
-Strategie confrontate:
-  * static      - il dataset viene diviso a priori in esattamente p blocchi;
-  * dynamic(k)  - il dataset viene diviso in molti chunk da k immagini che i
-                  worker prelevano appena si liberano.
-
-Metrica di sbilanciamento: imbalance = max(tempo occupato per worker) / media.
-Vale 1.0 con bilanciamento perfetto; il tempo totale e' governato dal worker
-piu' carico, quindi imbalance ~ perdita di efficienza.
-"""
 from __future__ import annotations
 
 import argparse

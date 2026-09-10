@@ -1,19 +1,3 @@
-#!/usr/bin/env python
-"""Esperimento 7 - Anatomia dell'overhead di parallelizzazione (requisiti 15 e 17).
-
-Non basta dire che lo speedup non e' lineare: qui ogni singola sorgente di
-overhead viene isolata e misurata.
-
-  A. costo di creazione dei processi, in funzione del numero di worker, dello
-     start method (fork/spawn/forkserver) e dell'impronta di memoria del padre;
-  B. costo di comunicazione: risultati come riduzione scalare vs immagine
-     completa restituita al master (196 KB per immagine da serializzare);
-  C. pool persistente vs pool ricreato a ogni batch (ammortizzazione del setup);
-  D. thread vs processi: quanto il GIL limita, e quanto OpenCV lo rilascia;
-  E. parallelismo *intra*-immagine (thread interni di OpenCV) confrontato con il
-     parallelismo *inter*-immagine adottato nel progetto;
-  F. CPU time totale vs wall-clock: quanto lavoro in piu' costa il parallelismo.
-"""
 from __future__ import annotations
 
 import argparse

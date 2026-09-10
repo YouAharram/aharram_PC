@@ -1,18 +1,3 @@
-#!/usr/bin/env python
-"""Esperimento 3 - Weak scaling (requisito 11).
-
-Il carico per worker resta costante (WEAK_PER_WORKER immagini) mentre crescono
-insieme problema e risorse: p worker elaborano p * WEAK_PER_WORKER immagini.
-
-Nel caso ideale il tempo di esecuzione resta piatto. Le metriche riportate sono:
-  * weak efficiency  E_w(p) = T(1, n1) / T(p, p*n1)
-  * scaled speedup   S_w(p) = p * E_w(p)      (legge di Gustafson)
-
-Nota sul dataset: per non richiedere 20 x 500 immagini in RAM, gli indici oltre
-la dimensione del pool ricircolano (i % len(pool)). Il pool (2.36 GB) e' ordini
-di grandezza piu' grande della cache L3 (24 MB), quindi il ricircolo non
-introduce vantaggi di cache apprezzabili; il seed resta legato all'indice.
-"""
 from __future__ import annotations
 
 import argparse

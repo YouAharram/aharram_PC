@@ -1,28 +1,3 @@
-"""Motore di esecuzione: baseline sequenziale + backend paralleli.
-
-Contiene:
-  * lo stato globale del worker (ereditato dai processi figli tramite fork);
-  * la funzione di lavoro applicata a un chunk di indici;
-  * i runner: sequenziale, ProcessPoolExecutor/Pool, ThreadPool;
-  * le strategie di scheduling: static (p blocchi contigui) e dynamic (molti
-    chunk piccoli assegnati on demand);
-  * la misura di wall-clock time, CPU time del master e CPU time dei figli.
-
-Scelte di progetto rilevanti per il benchmark
---------------------------------------------
-1. *Seed per immagine*: prima di ogni immagine la pipeline viene reinizializzata
-   con seed = base_seed + indice. L'output dipende quindi solo dall'indice
-   dell'immagine e non da quale worker la elabora, ne' dall'ordine, ne' dalla
-   dimensione dei chunk. Sequenziale e parallelo producono percio' output
-   *bit-identici* (requisito 5), pur restando l'augmentation randomica.
-2. *Trasferimento dei risultati*: per default i worker restituiscono una
-   riduzione scalare per immagine (somma dei pixel) invece dell'immagine
-   augmentata. Cosi' il benchmark misura il costo di calcolo e non il costo di
-   serializzazione IPC. La modalita' "array" e' disponibile per quantificare
-   esattamente quell'overhead (requisito 17).
-3. *Dataset condiviso*: con start method `fork` le immagini gia' in RAM nel
-   processo padre sono visibili ai figli in copy-on-write, senza pickling.
-"""
 from __future__ import annotations
 
 import hashlib

@@ -1,15 +1,3 @@
-"""Pipeline di augmentation Albumentations a tre livelli di costo computazionale.
-
-Requisito 2 del progetto: light / medium / heavy. Le pipeline sono costruite da
-una factory in modo che ogni processo worker possa ricrearne una copia locale
-(gli oggetti Compose non vengono condivisi tra processi).
-
-Tutte le trasformazioni sono applicate con p=1.0 dove la variabilita' del costo
-non e' voluta: cosi' il costo per immagine e' stabile e i tempi misurati non
-dipendono dall'estrazione casuale delle trasformazioni. La casualita' resta
-comunque presente nei *parametri* di ogni trasformazione (angoli, fattori di
-luminosita', ...), cioe' l'augmentation e' realmente randomica.
-"""
 from __future__ import annotations
 
 import albumentations as A

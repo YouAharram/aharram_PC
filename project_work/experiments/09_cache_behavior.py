@@ -1,20 +1,3 @@
-#!/usr/bin/env python
-"""Esperimento 9 (opzionale) - Working set e cache condivisa (requisito 18).
-
-I contatori hardware (`perf stat`) su questa macchina richiedono privilegi di
-root (`kernel.perf_event_paranoid = 4`), quindi il comportamento della cache
-viene osservato **indirettamente**, senza privilegi speciali.
-
-Idea: si varia la dimensione delle immagini mantenendo COSTANTE il numero totale
-di pixel elaborati (N viene aggiustato di conseguenza). Il lavoro aritmetico
-totale resta quindi lo stesso, e cambia solo l'ampiezza del working set di ogni
-singolo task. Con p worker attivi contemporaneamente, p working set si contendono
-gli stessi 24 MB di L3: se la cache conta, l'efficienza parallela deve degradare
-al crescere della dimensione delle immagini anche a parita' di lavoro totale.
-
-La pipeline usa `resize_last`, cosi' le trasformazioni lavorano alla risoluzione
-nativa e il costo e' proporzionale all'area.
-"""
 from __future__ import annotations
 
 import argparse

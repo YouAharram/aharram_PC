@@ -1,12 +1,3 @@
-"""Parametri centrali di tutti gli esperimenti.
-
-Dimensionati sulla macchina di test (i7-1280P, 14 core fisici / 20 logici,
-15 GB di RAM) in modo che:
-  * il tempo sequenziale sia abbastanza lungo da rendere trascurabile il rumore
-    di misura (>= ~1 s, e ~15 s per il workload pesante);
-  * il dataset in RAM resti sotto ~2.5 GB (condiviso in copy-on-write tra i
-    worker grazie allo start method `fork`).
-"""
 from __future__ import annotations
 
 import os
